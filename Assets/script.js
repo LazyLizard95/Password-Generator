@@ -28,22 +28,22 @@ generateBtn.addEventListener("click", () =>  {
   const includeNum = checkBoxNum.checked;
   const includeSpec = checkBoxSpec.checked;
   let passwordText = document.querySelector("#password");     
-  let charLength = userInput.value;
+  let userInput = document.querySelector(".input")
   
   
-  if(charLength >= 8 && charLength <= 128){ //checks if characters in input are not a number
+  if(userInput.value >= 8 && userInput.value <= 128){ //checks if characters in input are not a number
             //console.log(charLength);
-            generatePassword(charLength, includeLower, includeNum, includeUpper, includeSpec);
+            generatePassword(includeLower, includeNum, includeUpper, includeSpec);
             //console.log(generatePassword);
             
           } else{
-             passwordText.value = "ERROR: Please enter only numbers within the inputbox!" //if characters are not numeric display an error.
+             passwordText.value = "ERROR: Please enter only numbers within the inputbox!" 
           }
 })
 
 
 
-function generatePassword(charLength, includeLower, includeNum, includeUpper, includeSpec){
+function generatePassword(includeLower, includeNum, includeUpper, includeSpec){
   let charCodes = ""; //charCodes functions as a container to hold possible selections from the user.
   
   if (includeLower){
@@ -60,15 +60,15 @@ function generatePassword(charLength, includeLower, includeNum, includeUpper, in
   } 
 
   let passwordCharacters = []
-  for (let i = 0; i < charLength; i++){
-    let characters = charCodes[Math.floor(Math.random() * charLength)]
+  for (let i = 0; i < userInput.value; i++){
+    let characters = charCodes[Math.floor(Math.random() * userInput.value)]
       //console.log(characters);
       passwordCharacters.push(characters);
       console.log(passwordCharacters)
       //passwordText.value = characters;
     }
 }
-//console.log(upperCaseCodes);
+//console.log(numericCodes);
 
 //generatePassword();
 
