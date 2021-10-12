@@ -15,7 +15,7 @@ let numericCodes = String.fromCharCode(48, 57)
 let specialCodes = String.fromCharCode(33, 47).concat( //concat short for concatenation will combine the smaller arrays created by the function into one large array.
   String.fromCharCode(58, 64).concat(
     String.fromCharCode(91, 96).concat(
-      String.fromCharCode(123, 126) //Multiple arrays need to be generated since if we simply wrote (33, 126) specialCharacters would include non symbols.
+      String.fromCharCode(123, 126) //Multiple arrays need to be generated since if wrote (33, 126) specialCharacters would include non symbols.
      )
    )
  )
@@ -47,22 +47,25 @@ function generatePassword(charLength, includeLower, includeNum, includeUpper, in
   let charCodes = ""; //charCodes functions as a container to hold possible selections from the user.
   
   if (includeLower){
-  charCodes = charCodes.concat(lowerCaseCodes)
+  charCodes = charCodes.concat(lowerCaseCodes.length)
   }  //if box is checked, include array containing lowerCaseCodes into the container array charCodes
   if (includeUpper){
-  charCodes = charCodes.concat(upperCaseCodes)
+  charCodes = charCodes.concat(upperCaseCodes.length)
   }
   if (includeNum){ 
-  charCodes = charCodes.concat(numericCodes)
+  charCodes = charCodes.concat(numericCodes.length)
   }
   if (includeSpec){
-  charCodes = charCodes.concat(specialCodes)
+  charCodes = charCodes.concat(specialCodes.length)
   } 
 
-  for (i = 0; i < charLength; i++){
+  let passwordCharacters = []
+  for (let i = 0; i < charLength; i++){
     let characters = charCodes[Math.floor(Math.random() * charLength)]
-      console.log(characters);
-      passwordText.value = characters;
+      //console.log(characters);
+      passwordCharacters.push(characters);
+      console.log(passwordCharacters)
+      //passwordText.value = characters;
     }
 }
 //console.log(upperCaseCodes);
