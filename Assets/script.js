@@ -9,22 +9,23 @@ let passwordText = document.querySelector("#password");
 //Global Variables
 
 //Variables containing ASCII values
-let upperCaseCodes = String.fromCharCode(Math.floor(Math.random() * 15) + 97)
-console.log(upperCaseCodes);
-var lowerCaseCodes = String.fromCharCode(Math.floor(Math.random() * 15) + 65)
-console.log(lowerCaseCodes);
-let numericCodes = String.fromCharCode(Math.floor(Math.random() * 10) + 48)
-console.log(numericCodes);
-let specialCodes = String.fromCharCode(33, 47).concat( //concat short for concatenation will combine the smaller arrays created by the function into one large array.
+const randomCharCodes = {
+ upperCaseCodes : () => String.fromCharCode(Math.floor(Math.random() * 15) + 97),
+
+ lowerCaseCodes : () => String.fromCharCode(Math.floor(Math.random() * 15) + 65),
+
+ numericCodes : () => String.fromCharCode(Math.floor(Math.random() * 10) + 48),
+
+ specialCodes : () => String.fromCharCode(33, 47).concat( //concat short for concatenation will combine the smaller arrays created by the function into one large array.
   String.fromCharCode(58, 64).concat(
     String.fromCharCode(91, 96).concat(
       String.fromCharCode(123, 126) //Multiple arrays need to be generated since if wrote (33, 126) specialCharacters would include non symbols.
     )
-  )
-)
+  ) // grabs a random character from the four concating
+)[Math.floor(Math.random() * 8)]
+    }
 
-
-
+console.log(randomCharCodes.specialCodes())
 
 
 // Add event listener to generate button
@@ -52,7 +53,7 @@ generateBtn.addEventListener("click", () => {
 
 
 function randomGen(funcName) {
-  let random = funcName[Math.floor(Math.random() * userInput.value)];
+  let random = randomCharCodes[funcName]()
   console.log(random);
   return random;
 }
