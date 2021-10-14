@@ -37,7 +37,7 @@ generateBtn.addEventListener("click", () => {
   let passwordText = document.querySelector("#password");
   let userInput = document.querySelector(".input")
 
-
+//if (!Nan(userInput.parse))
   if (userInput.value >= 8 && userInput.value <= 128) { //checks if characters in input are not a number
     //console.log(charLength);
     
@@ -46,7 +46,7 @@ generateBtn.addEventListener("click", () => {
     //console.log(generatePassword);
 
   } else {
-    passwordText.value = "ERROR: Please enter only numbers within the inputbox!"
+    passwordText.value = "ERROR: Length declared inappropriate and or includes letters!!"
   }
 })
 
@@ -67,12 +67,14 @@ function generatePassword(includeLower, includeNum, includeUpper, includeSpec) {
   if (typesCount === 0) {
     return "";
   }
-  for (let i = 0; i < userInput.value; i += typesCount) {
-    typesArray.filter(type => Object.values(type)[0]).forEach(type => {
+  let choosenTypes = typesArray.filter(type => Object.values(type)[0])
+  for (let i = 0; i < userInput.value; i++) {
+    let type = choosenTypes[Math.floor(Math.random() * choosenTypes.length)]
+    //typesArray.filter(type => Object.values(type)[0]).forEach(type => {
       var funcName = Object.keys(type)[0]//grabs keys from the object at index 0
       charCodes += randomGen(funcName)
 
-    })
+   //})
   }
   console.log("charCodes is ", charCodes);
   //return charCodes.substring(0, userInput.value);
