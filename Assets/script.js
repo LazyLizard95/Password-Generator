@@ -8,7 +8,7 @@ let userInput = document.querySelector(".input")
 let passwordText = document.querySelector("#password");
 //Global Variables
 
-//Variables containing ASCII values
+//Variable containing ASCII values
 const randomCharCodes = {
  upperCaseCodes : () => String.fromCharCode(Math.floor(Math.random() * 15) + 97),
 
@@ -52,7 +52,7 @@ generateBtn.addEventListener("click", () => {
 
 
 
-function randomGen(funcName) {
+function randomGen(funcName) { //holds logic to gen random
   let random = randomCharCodes[funcName]()
   console.log(random);
   return random;
@@ -83,7 +83,7 @@ function generatePassword(includeLower, includeNum, includeUpper, includeSpec) {
     let characters = charCodes[Math.floor(Math.random() * userInput.value)]
     //console.log(characters);
     passwordCharacters.push(characters);
-    console.log(passwordCharacters)
+    //console.log(passwordCharacters)
     //passwordText.value = characters;
   }
   return charCodes.substring(0, userInput.value);
@@ -92,6 +92,11 @@ function generatePassword(includeLower, includeNum, includeUpper, includeSpec) {
 //console.log(numericCodes);
 
 //generatePassword();
+
+
+//I am sorry about all the random bits of code commented out and left around. I use this project to test and play around I'm really sorry 0-0
+
+
 
 //TODO:
 //Gen password 8 - 128 characters
