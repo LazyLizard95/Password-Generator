@@ -10,9 +10,9 @@ let passwordText = document.querySelector("#password");
 
 //Variable containing ASCII values
 const randomCharCodes = {
- upperCaseCodes : () => String.fromCharCode(Math.floor(Math.random() * 15) + 97),
+ upperCaseCodes : () => String.fromCharCode(Math.floor(Math.random() * 15) + 65),
 
- lowerCaseCodes : () => String.fromCharCode(Math.floor(Math.random() * 15) + 65),
+ lowerCaseCodes : () => String.fromCharCode(Math.floor(Math.random() * 15) + 97),
 
  numericCodes : () => String.fromCharCode(Math.floor(Math.random() * 10) + 48),
 
